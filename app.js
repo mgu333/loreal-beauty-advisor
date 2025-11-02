@@ -470,6 +470,10 @@ class LOrealBeautyAdvisor {
             }
             chatItem.dataset.chatId = chat.id;
             
+            // Use safe boolean for class and fill attribute
+            const isActive = chat.favorite ? 'active' : '';
+            const fillValue = chat.favorite ? 'currentColor' : 'none';
+            
             chatItem.innerHTML = `
                 <svg class="chat-history-item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -479,8 +483,8 @@ class LOrealBeautyAdvisor {
                     <div class="chat-history-item-preview">${this.escapeHtml(chat.preview)}</div>
                 </div>
                 <div class="chat-history-item-actions">
-                    <button class="chat-action-btn favorite ${chat.favorite ? 'active' : ''}" data-action="favorite">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="${chat.favorite ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+                    <button class="chat-action-btn favorite ${isActive}" data-action="favorite">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="${fillValue}" stroke="currentColor" stroke-width="2">
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                         </svg>
                     </button>
