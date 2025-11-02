@@ -1,0 +1,33 @@
+name = "loreal-beauty-advisor-api"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Cloudflare Worker Configuration for L'Oréal Beauty Advisor API
+
+# Account ID (optional, can be set via wrangler login)
+# account_id = "your-account-id"
+
+# Workers Settings
+workers_dev = true
+
+# Routes (uncomment and modify if deploying to a custom domain)
+# routes = [
+#   { pattern = "yourdomain.com/api/*", zone_name = "yourdomain.com" }
+# ]
+
+# Environment Variables (non-sensitive)
+[vars]
+# Uncomment and set allowed origins for production
+# ALLOWED_ORIGINS = "https://yourdomain.com,https://www.yourdomain.com"
+
+# Secrets (set using: wrangler secret put OPENAI_API_KEY)
+# OPENAI_API_KEY is required and should be set as a secret, not here
+
+# Build Configuration
+[build]
+command = ""
+watch_dirs = []
+
+# Triggers (for scheduled tasks - not used in this project)
+# [triggers]
+# crons = []

@@ -1,0 +1,39 @@
+{
+  "name": "loreal-beauty-advisor",
+  "version": "1.0.0",
+  "description": "AI-powered L'Oréal Beauty Advisor chatbot - personalized product recommendations and beauty guidance using OpenAI GPT",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "deploy:worker": "wrangler deploy",
+    "tail:worker": "wrangler tail",
+    "secret:openai": "wrangler secret put OPENAI_API_KEY",
+    "secret:origins": "wrangler secret put ALLOWED_ORIGINS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgu333/loreal-beauty-advisor.git"
+  },
+  "keywords": [
+    "loreal",
+    "beauty",
+    "advisor",
+    "chatbot",
+    "ai",
+    "openai",
+    "gpt",
+    "skincare",
+    "makeup",
+    "haircare",
+    "cloudflare-workers"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mgu333/loreal-beauty-advisor/issues"
+  },
+  "homepage": "https://github.com/mgu333/loreal-beauty-advisor#readme",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
