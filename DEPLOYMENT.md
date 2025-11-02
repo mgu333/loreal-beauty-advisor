@@ -121,7 +121,7 @@ Choose one of the following deployment methods:
    - Your site will be available at: `https://your-project.pages.dev`
 
 4. **Update Worker URL** (if needed)
-   - Edit `app.js` with your Worker URL
+   - Edit `app.js` around line 328 with your Worker URL
    - Commit and push to trigger redeployment
 
 ### Option 3: Netlify
@@ -168,8 +168,8 @@ Choose one of the following deployment methods:
 
 1. **Update Worker URL in app.js**
    ```javascript
-   // Line ~244 in app.js
-   const response = await fetch('https://your-actual-worker-url.workers.dev/api/chat', {
+   // Line ~328 in app.js - Update the production URL
+   : 'https://your-actual-worker-url.workers.dev/api/chat';  // Production - UPDATE THIS
    ```
 
 2. **Set Allowed Origins (Optional but Recommended)**
