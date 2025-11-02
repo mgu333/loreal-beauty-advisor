@@ -34,6 +34,6 @@
   },
   "homepage": "https://github.com/mgu333/loreal-beauty-advisor#readme",
   "devDependencies": {
-    "wrangler": "^3.0.0"
+    "wrangler": "^3.78.0"
   }
 }

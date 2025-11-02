@@ -273,14 +273,45 @@ class LOrealBeautyAdvisor {
     addErrorMessage(errorText) {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
-        errorDiv.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>
-            <span>${errorText}</span>
-        `;
+        
+        // Create SVG icon
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('width', '20');
+        svg.setAttribute('height', '20');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '2');
+        
+        const circle = document.createElementNS(svgNS, 'circle');
+        circle.setAttribute('cx', '12');
+        circle.setAttribute('cy', '12');
+        circle.setAttribute('r', '10');
+        
+        const line1 = document.createElementNS(svgNS, 'line');
+        line1.setAttribute('x1', '12');
+        line1.setAttribute('y1', '8');
+        line1.setAttribute('x2', '12');
+        line1.setAttribute('y2', '12');
+        
+        const line2 = document.createElementNS(svgNS, 'line');
+        line2.setAttribute('x1', '12');
+        line2.setAttribute('y1', '16');
+        line2.setAttribute('x2', '12.01');
+        line2.setAttribute('y2', '16');
+        
+        svg.appendChild(circle);
+        svg.appendChild(line1);
+        svg.appendChild(line2);
+        
+        // Create text span (safe from XSS)
+        const span = document.createElement('span');
+        span.textContent = errorText;
+        
+        errorDiv.appendChild(svg);
+        errorDiv.appendChild(span);
+        
         this.elements.messagesContainer.appendChild(errorDiv);
         this.scrollToBottom();
     }
