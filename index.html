@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>L'Oréal Beauty Advisor - AI-Powered Beauty Assistant</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+<body>
+      <!-- Header with L'Oréal Branding -->
+      <header class="header">
+                <div class="header-content">
+                              <img src="img/loreal-logo.png" alt="L'Oréal Paris" class="logo">
+                              <h1 class="header-title">Beauty Advisor</h1>h1>
+                              <p class="header-subtitle">Your Personal AI Beauty Consultant</p>p>
+                </div>div>
+      </header>header>
+
+      <!-- Main Container -->
+      <div class="container">
+                <!-- Sidebar for Chat History -->
+                <aside class="sidebar">
+                              <div class="sidebar-header">
+                                                <h2>Chat History</h2>
+                                              <button id="newChatBtn" class="btn-new-chat">
+                                                                  <span class="icon">+</span>span> New Chat
+                                              </button>button>
+                              </div>div>
+                            
+                            <div class="search-container">
+                                            <input type="text" id="searchChats" placeholder="Search conversations..." class="search-input">
+                            </div>div>
+                
+                            <div class="chat-list" id="chatList">
+                                            <!-- Chat history items will be dynamically added here -->
+                            </div>div>
+                </aside>aside>
+      
+              <!-- Main Chat Area -->
+              <main class="chat-container">
+                          <!-- Welcome Screen -->
+                          <div id="welcomeScreen" class="welcome-screen">
+                                          <div class="welcome-content">
+                                                              <h2>Welcome to L'Oréal Beauty Advisor</h2>
+                                                              <p>Ask me anything about L'Oréal products, beauty routines, skincare tips, makeup recommendations, and more!</p>
+                                                              
+                                                              <div class="suggestion-cards">
+                                                                                      <button class="suggestion-card" data-prompt="What's the best L'Oréal foundation for oily skin?">
+                                                                                                                  <span class="suggestion-icon">💄</span>span>
+                                                                                                                  <span>Best foundation for oily skin?</span>
+                                                                                        </button>button>
+                                                                                      <button class="suggestion-card" data-prompt="Can you recommend a L'Oréal anti-aging skincare routine?">
+                                                                                                                  <span class="suggestion-icon">✨</span>
+                                                                                                                  <span>Anti-aging skincare routine</span>
+                                                                                        </button>button>
+                                                                                      <button class="suggestion-card" data-prompt="What L'Oréal hair products are best for damaged hair?">
+                                                                                                                  <span class="suggestion-icon">💇</span>
+                                                                                                                  <span>Hair care for damaged hair</span>
+                                                                                        </button>button>
+                                                                                      <button class="suggestion-card" data-prompt="Tell me about L'Oréal's newest makeup collections">
+                                                                                                                  <span class="suggestion-icon">🎨</span>
+                                                                                                                  <span>Newest makeup collections</span>
+                                                                                        </button>button>
+                                                              </div>div>
+                                          </div>div>
+                          </div>div>
+              
+                          <!-- Chat Messages Area -->
+                          <div id="chatMessages" class="chat-messages">
+                                          <!-- Messages will be dynamically added here -->
+                          </div>div>
+              
+                          <!-- Loading Indicator -->
+                          <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                                          <div class="loading-dots">
+                                                              <span></span>
+                                                              <span></span>
+                                                              <span></span>
+                                          </div>div>
+                                          <p>Beauty Advisor is thinking...</p>
+                          </div>div>
+              
+                          <!-- Input Area -->
+                          <div class="input-container">
+                                          <div class="input-wrapper">
+                                                              <textarea 
+                                                                                        id="userInput" 
+                                                                                        class="user-input" 
+                                                                                        placeholder="Ask about L'Oréal products, beauty tips, routines..." 
+                                                                                        rows="1"
+                                                                                    ></textarea>
+                                                              <button id="sendBtn" class="btn-send" aria-label="Send message">
+                                                                                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                                                                  <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                                        </svg>svg>
+                                                              </button>button>
+                                          </div>div>
+                                          <p class="input-hint">Powered by OpenAI GPT - Ask about L'Oréal beauty products only</p>
+                          </div>div>
+              </main>main>
+      </div>div>
+
+    <!-- Footer -->
+    <footer class="footer">
+            <p>&copy; 2025 L'Oréal Paris. Because You're Worth It.</p>
+    </footer>footer>
+
+    <script src="script.js"></script>
+</body>
+</html>html></textarea></p></span></span></p></h2></h2>
+</body></title>
+  </head>
