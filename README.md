@@ -107,10 +107,11 @@ AI-powered L'Oréal Beauty Advisor chatbot providing personalized product recomm
 
 6. **Update Frontend API Endpoint**
    - Note the Worker URL from deployment (e.g., `https://loreal-beauty-advisor-api.your-subdomain.workers.dev`)
-   - Update `app.js` line 244 to use your Worker URL:
+   - Update the production API endpoint in `app.js` (around line 302):
      ```javascript
-     const response = await fetch('https://your-worker-url.workers.dev/api/chat', {
+     : 'https://your-actual-worker-url.workers.dev/api/chat';  // Production - UPDATE THIS
      ```
+   - Alternatively, create a `config.js` file from `config.example.js` for easier configuration
 
 ### Hosting Options
 

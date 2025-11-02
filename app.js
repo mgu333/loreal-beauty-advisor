@@ -289,8 +289,15 @@ class LOrealBeautyAdvisor {
         // Get the conversation history for context
         const messages = this.getCurrentChatMessages();
         
+        // API endpoint - Configure this with your deployed Cloudflare Worker URL
+        // For local development with a proxy, use '/api/chat'
+        // For production, replace with your Worker URL: 'https://your-worker.workers.dev/api/chat'
+        const API_ENDPOINT = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? '/api/chat'  // Local development (requires proxy)
+            : 'https://loreal-beauty-advisor-api.workers.dev/api/chat';  // Production - UPDATE THIS
+        
         // Call the Cloudflare Worker API
-        const response = await fetch('/api/chat', {
+        const response = await fetch(API_ENDPOINT, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

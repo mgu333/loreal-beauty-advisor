@@ -9,6 +9,9 @@ yarn.lock
 .env.production
 .dev.vars
 
+# Configuration
+config.js
+
 # IDE
 .vscode/
 .idea/

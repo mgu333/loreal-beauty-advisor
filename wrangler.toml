@@ -1,6 +1,6 @@
 name = "loreal-beauty-advisor-api"
 main = "worker.js"
-compatibility_date = "2024-01-01"
+compatibility_date = "2024-11-01"
 
 # Cloudflare Worker Configuration for L'Oréal Beauty Advisor API
 

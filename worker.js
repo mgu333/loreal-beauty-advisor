@@ -60,7 +60,7 @@ async function handleRequest(request, env) {
         if (!userMessage || typeof userMessage !== 'string') {
             return new Response(
                 JSON.stringify({ error: 'Invalid request: userMessage is required' }),
-                { status: 400, headers: { 'Content-Type': 'application/json' } }
+                { status: 400, headers: getCORSHeaders(origin) }
             );
         }
 
@@ -68,7 +68,7 @@ async function handleRequest(request, env) {
         if (userMessage.length > 1000) {
             return new Response(
                 JSON.stringify({ error: 'Message too long. Please keep messages under 1000 characters.' }),
-                { status: 400, headers: { 'Content-Type': 'application/json' } }
+                { status: 400, headers: getCORSHeaders(origin) }
             );
         }
 
