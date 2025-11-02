@@ -28,14 +28,16 @@ Product categories you can recommend:
 
 Remember: "Because You're Worth It" - make every customer feel valued and beautiful.`;
 
-addEventListener('fetch', event => {
-    event.respondWith(handleRequest(event.request));
-});
+export default {
+    async fetch(request, env, ctx) {
+        return handleRequest(request, env);
+    }
+};
 
-async function handleRequest(request) {
+async function handleRequest(request, env) {
     // Handle CORS preflight
     if (request.method === 'OPTIONS') {
-        return handleCORS(request);
+        return handleCORS(request, env);
     }
 
     // Only allow POST requests
@@ -45,7 +47,7 @@ async function handleRequest(request) {
 
     // Check origin
     const origin = request.headers.get('Origin');
-    if (!isOriginAllowed(origin)) {
+    if (!isOriginAllowed(origin, env)) {
         return new Response('Origin not allowed', { status: 403 });
     }
 
@@ -90,7 +92,7 @@ async function handleRequest(request) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${OPENAI_API_KEY}`
+                'Authorization': `Bearer ${env.OPENAI_API_KEY}`
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
@@ -148,10 +150,10 @@ async function handleRequest(request) {
     }
 }
 
-function handleCORS(request) {
+function handleCORS(request, env) {
     const origin = request.headers.get('Origin');
     
-    if (!isOriginAllowed(origin)) {
+    if (!isOriginAllowed(origin, env)) {
         return new Response('Origin not allowed', { status: 403 });
     }
 
@@ -171,11 +173,11 @@ function getCORSHeaders(origin) {
     };
 }
 
-function isOriginAllowed(origin) {
+function isOriginAllowed(origin, env) {
     // In development, allow all origins
     // In production, check against ALLOWED_ORIGINS environment variable
-    if (typeof ALLOWED_ORIGINS !== 'undefined' && ALLOWED_ORIGINS) {
-        const allowedOrigins = ALLOWED_ORIGINS.split(',').map(o => o.trim());
+    if (env.ALLOWED_ORIGINS) {
+        const allowedOrigins = env.ALLOWED_ORIGINS.split(',').map(o => o.trim());
         return allowedOrigins.includes(origin);
     }
     
