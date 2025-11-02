@@ -107,11 +107,19 @@ AI-powered L'Oréal Beauty Advisor chatbot providing personalized product recomm
 
 6. **Update Frontend API Endpoint**
    - Note the Worker URL from deployment (e.g., `https://loreal-beauty-advisor-api.your-subdomain.workers.dev`)
-   - Update the production API endpoint in `app.js` (around line 302):
+   - Update the production API endpoint in `app.js` (around line 328):
      ```javascript
      : 'https://your-actual-worker-url.workers.dev/api/chat';  // Production - UPDATE THIS
      ```
    - Alternatively, create a `config.js` file from `config.example.js` for easier configuration
+
+7. **Set ALLOWED_ORIGINS (Recommended for Production)**
+   ```bash
+   wrangler secret put ALLOWED_ORIGINS
+   # Enter your production domain(s), comma-separated:
+   # https://yourdomain.com,https://www.yourdomain.com
+   ```
+   This restricts API access to your domain only.
 
 ### Hosting Options
 

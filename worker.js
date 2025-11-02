@@ -174,13 +174,16 @@ function getCORSHeaders(origin) {
 }
 
 function isOriginAllowed(origin, env) {
-    // In development, allow all origins
     // In production, check against ALLOWED_ORIGINS environment variable
     if (env.ALLOWED_ORIGINS) {
         const allowedOrigins = env.ALLOWED_ORIGINS.split(',').map(o => o.trim());
         return allowedOrigins.includes(origin);
     }
     
-    // If no ALLOWED_ORIGINS set, allow all (not recommended for production)
+    // If no ALLOWED_ORIGINS set, allow all for development
+    // WARNING: Set ALLOWED_ORIGINS in production for security
+    // For production without ALLOWED_ORIGINS, you can return false to block all
+    // or implement additional origin validation logic
+    console.warn('ALLOWED_ORIGINS not set - allowing all origins. Set this in production!');
     return true;
 }

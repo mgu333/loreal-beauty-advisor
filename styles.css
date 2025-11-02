@@ -699,7 +699,7 @@ body {
     }
 
     .message-input {
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px; /* Prevents iOS Safari from auto-zooming when focusing on inputs with font-size < 16px */
     }
 }
 
